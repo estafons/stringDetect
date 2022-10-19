@@ -1,5 +1,5 @@
 import math
-from src.stringDetect.models import FretBoard, Position
+from stringDetect.models import FretBoard, Position
 from typing import Dict
 
 def simpleModel(fretBetas: Dict):

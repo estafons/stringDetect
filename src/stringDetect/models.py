@@ -22,6 +22,9 @@ class Position:
     def __hash__(self):
         return hash(str(self))
 
+    def __eq__(self, other):
+        return (self.stringNo == other.stringNo) and (self.fretNo == other.fretNo)
+
 @dataclass
 class FretBeta:
     position: Position
@@ -64,7 +67,7 @@ class FretBoard:
         midi = computeStandardTuningMidi(fundamental)
         res = []
         for stringNo, openMidi in enumerate(self.standardTuning):
-            if (midi - openMidi >= 0):
+            if (24 >= midi - openMidi >= 0):
                 res.append(self.getBeta(stringNo, midi-openMidi))
         return res
 
